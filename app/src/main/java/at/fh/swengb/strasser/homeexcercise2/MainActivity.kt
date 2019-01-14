@@ -20,7 +20,7 @@ import kotlinx.android.synthetic.main.activity_main.*
             val sharedPreferences = getSharedPreferences(packageName, Context.MODE_PRIVATE) // from within activity
             sharedPreferences.edit().putString("name", main_name.text.toString()).apply()
             Log.i("Test", "stored name")
-            sharedPreferences.edit().putInt("alter", main_age.text.toString().toInt()).apply()
+            sharedPreferences.edit().putInt("alter", main_age.text.toString().toIntOrNull()?: 0).apply()
             Log.i("Test", "stored age succesfully")
 
             val intent = Intent(this, NoteListActivity::class.java)

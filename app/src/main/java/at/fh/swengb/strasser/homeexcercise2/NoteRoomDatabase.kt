@@ -18,6 +18,15 @@ abstract class NoteRoomDatabase : RoomDatabase() {
     abstract val noteDao: NoteDao
 
     companion object {
+
+        /*private var INSTANCE: NoteRoomDatabase? = null
+
+        fun getDatabase(context: Context): NoteRoomDatabase{
+            return INSTANCE ?: buildDatabase(context).also { INSTANCE = it}
+        }
+        */
+
+
         fun getDatabase(context: Context): NoteRoomDatabase {
             return Room.databaseBuilder(context, NoteRoomDatabase::class.java, "note-db")
                     .allowMainThreadQueries()
